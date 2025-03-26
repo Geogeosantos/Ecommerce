@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Turbo</title>
+    <link rel="stylesheet" href="{% static '/styles/styles.css' %}">
+</head>
+
+<body>
+
+    {% include 'partials/_menu.html' %}
+    {% block content %}{% endblock %}
+
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+
+</body>
+
+</html>

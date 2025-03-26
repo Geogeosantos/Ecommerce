@@ -1,0 +1,53 @@
+{% load static %}
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header__logo">
+            <a href="{% url 'index' %}">
+                <img src="{% static '/assets/logo/SUMWON_LOGO-03.png' %}" alt="Logo">
+                <!-- Caminho alterado para a pasta 'media' -->
+            </a>
+        </div>
+        <nav class="header__nav">
+            <a href="#">Início</a>
+            <div class="dropdown">
+                <a href="#">Produtos</a>
+                <div class="dropdown-content">
+                    <a href="{% url 't_shirts' %}">T-Shirts</a>
+                    <a href="{% url 'jeans' %}">Jeans</a>
+                    <a href="#">Shorts</a>
+                    <a href="#">Sneakers</a>
+                    <a href="#">Acessórios</a>
+                </div>
+            </div>
+            <a href="#">Novidades</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+        </nav>
+        <div class="header__right">
+            <div class="icon" id="cart-icon">
+                <img src="{% static '/assets/icons/cart-icon.png' %}" alt="Carrinho de Compras">
+            </div>
+            <div class="icon">
+                <a href="{% url 'login' %}">
+                    <img src="{% static '/assets/icons/user-icon.png' %}" alt="Usuário">
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Carrinho de Compras (Inicialmente escondido) -->
+        <div id="cart-container" class="cart-container">
+            <div class="cart-content">
+                <h2>Carrinho de Compras</h2>
+                <ul id="cart-items">
+                    <!-- Os itens serão adicionados dinamicamente aqui -->
+                </ul>
+                <button class="close-btn"></button>
+            </div>
+            <div class="checkout">
+                <a href="{% url 'checkout' %}">
+                    <button class="checkout-btn">Finalizar Compra</button>
+                </a>
+            </div>
+        </div>
+    </header>        

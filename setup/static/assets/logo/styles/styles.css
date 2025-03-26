@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    padding-top: 80px;
+}
+
+/* Estilo para o Carrinho de Compras */
+.cart-container {
+    position: fixed;
+    top: 0;
+    right: -500px; /* O carrinho começa fora da tela à direita */
+    width: 500px; /* Largura maior para os itens */
+    height: 100vh;
+    background-color: #333;
+    z-index: 1000;
+    transition: right 0.5s ease-in-out; /* Efeito de deslizamento */
+    color: white;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+/* Quando o carrinho estiver visível */
+.cart-container.show {
+    right: 0; /* O carrinho desliza para dentro da tela */
+}
+
+/* Estilo do conteúdo do carrinho */
+.cart-content h2 {
+    font-size: 32px; /* Maior tamanho de fonte */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.cart-content .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px; /* Maior espaçamento entre os itens */
+    color: white;
+    border-bottom: 1px solid #fff; /* Linha de separação entre os itens */
+    padding-bottom: 20px; /* Maior espaço abaixo dos itens */
+}
+
+.cart-content .cart-item img {
+    width: 140px; /* Imagem maior */
+    height: auto;
+    margin-right: 20px; /* Maior espaço entre a imagem e o texto */
+}
+
+.cart-content .cart-item .item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-content .cart-item .item-info p {
+    margin: 10px 0; /* Maior espaçamento entre o nome e o preço */
+    font-size: 18px; /* Tamanho maior do texto */
+}
+
+.cart-content .cart-item .item-info p:nth-child(2) {
+    font-weight: bold; /* Preço em negrito */
+    font-size: 20px; /* Tamanho maior para o preço */
+}
+
+/* Botão de Fechar */
+.close-btn {
+    background: #f00; /* Cor de fundo vermelha */
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50%; /* Forma arredondada */
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Colocando o botão no canto superior direito */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Tamanho maior para o botão */
+    height: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar destaque */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições para o efeito de hover */
+    text-align: center;
+}
+
+.close-btn:hover {
+    background-color: #d90000; /* Cor de fundo mais escura no hover */
+    transform: scale(1.1); /* Leve aumento de tamanho no hover */
+}
+
+/* Estilo do "X" dentro do botão */
+.close-btn::before {
+    content: "×"; /* Usando o símbolo '×' */
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Estilo para o botão de Finalizar Compra */
+.checkout {
+    margin-top: 20px; /* Espaço superior */
+    text-align: center;
+}
+
+.checkout-btn {
+    background-color: #28a745; /* Cor verde */
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100%; /* Faz com que o botão ocupe toda a largura disponível */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições */
+}
+
+.checkout-btn:hover {
+    background-color: #218838; /* Cor verde mais escura no hover */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+}
+
+.checkout-btn:active {
+    transform: scale(1); /* Retorna ao tamanho normal quando pressionado */
+}
+
+
+/* Botão do carrinho na barra superior */
+.header__right .icon {
+    cursor: pointer;
+}
+
+/* Cabeçalho */
+header {
+    width: 100%;
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header__logo img {
+    max-height: 20px;
+}
+
+/* Centraliza os botões de navegação */
+.header__nav {
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+    justify-content: center;
+    flex-grow: 1; /* Permite que a área de navegação ocupe todo o espaço disponível */
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Estilos para o dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+/* Estilos para o conteúdo do dropdown (invisível inicialmente) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Mostrar o conteúdo do dropdown quando passar o mouse sobre o menu */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Banner Principal */
+.banner {
+    height: 100vh;
+    background-image: url('/assets/images/foto_principal.png'); /* Caminho alterado para a pasta 'media' */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(246, 246, 246);
+    padding: 0 20px;
+}
+
+.banner h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+/* Seção de Produtos */
+#t_shirts {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+#jeans {
+    padding: 50px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.produtos h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Exibe até 3 produtos por linha */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.produto {
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.produto img {
+    max-width: 100%;
+    height: auto;
+}
+
+.produto h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.produto p {
+    font-size: 16px;
+    color: #777;
+}
+
+.produto button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 50px;
+}
+
+/* Botões de sacola de compras e usuário no canto direito */
+.header__right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.header__right .icon {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header__right .icon img {
+    width: 24px;
+    height: 24px;
+}

@@ -1,0 +1,20 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+
+    <body>
+        <div class="login-container">
+            <img src="{% static '/assets/logo/SUMWON_LOGO-03.png' %}" alt="Logo do Site">
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Usuário" required>
+                <input type="password" name="password" placeholder="Senha" required>
+                <button type="submit">Login</button>
+                <a href="#" class="forgot-password">Esqueci a senha</a>
+            </form>
+        </div>
+    </body>
+</main>
+{% endblock %}

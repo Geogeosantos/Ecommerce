@@ -1,0 +1,50 @@
+{%extends 'partials/_base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="container">
+    <section id="t_shirts" class="produtos">
+        <h2>T-SHIRTS</h2>
+
+        <!-- Botões para mudar o layout -->
+        <div class="layout-container">
+            <div class="view-buttons">
+                <button onclick="changeLayout('list')">
+                    <img src="{% static 'assets/icons/grade_unica.png' %}" alt="">
+                </button>
+                <button onclick="changeLayout('grid-4')">
+                    <img src="{% static 'assets/icons/grade_menor.png' %}" alt="">
+                </button>
+                <button onclick="changeLayout('grid-6')">
+                    <img src="{% static 'assets/icons/grade_maior.png' %}" alt="">
+                </button>
+            </div>
+            <div class="total-count">
+                <p>{{ total_camisas }} produtos</p>
+            </div>
+        </div>
+
+        <div class="grid-produtos">
+            {% if camisas %}
+            {% for camisa in camisas %}
+            <div class="produto">
+                <a href="{% url 'produto' camisa.id %}">
+                    {% if camisa.imagem == "" or camisa.imagem == null %}
+                    <img src="{% static 'media/not_found.png' %}" alt="Camisa">
+                    {% else %}
+                    <img src="{{ camisa.imagem.url }}" alt="Camisa">
+                    {% endif %}
+                </a>
+                <h3>{{ camisa.nome }}</h3>
+                <p>R$ {{ camisa.preco }}</p>
+                <button>Comprar</button>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>Nenhum produto encontrado.</p>
+            {% endif %}
+        </div>
+    </section>
+</section>
+
+{% endblock %}

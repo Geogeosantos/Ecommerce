@@ -1,0 +1,32 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="container">
+    <section id="produto_detail" class="produto-detail">
+        
+        <div class="produto-info">
+            <!-- Container da imagem -->
+            <div class="produto-imagem">
+                {% if produto.imagem %}
+                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+                {% else %}
+                    <img src="{% static 'media/not_found.png' %}" alt="Imagem não encontrada">
+                {% endif %}
+            </div>
+
+            <!-- Dados do produto à direita -->
+            <div class="produto-dados">
+                <h2>{{ produto.nome }}</h2>
+                <p><strong>Cor:</strong> {{ produto.cor }}</p>
+                <p><strong>Tamanho:</strong> {{ produto.tamanho }}</p>
+                <p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+                <a href="{% url 'checkout' %}">
+                    <button class="btn-comprar">Comprar</button>
+                </a>
+            </div>
+        </div>
+    </section>
+</section>
+
+{% endblock %}
