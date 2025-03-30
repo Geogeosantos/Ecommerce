@@ -1,0 +1,56 @@
+{% extends 'partials/_base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="container">
+    <section id="produto_detail" class="produto-detail">
+        
+        <div class="produto-info">
+            <!-- Container da imagem -->
+            <div class="produto-imagem">
+                {% if produto.imagem %}
+                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}">
+                {% else %}
+                    <img src="{% static 'media/not_found.png' %}" alt="Imagem não encontrada">
+                {% endif %}
+            </div>
+
+            <!-- Dados do produto à direita -->
+            <div class="produto-dados">
+                <h2>{{ produto.nome }}</h2>
+
+
+                <p><strong>Cor:</strong></p>
+                <div class="cores">
+                    <span class="cor" style="background-color: #ff0000;" data-cor="Vermelho"></span>
+                    <span class="cor" style="background-color: #0000ff;" data-cor="Azul"></span>
+                    <span class="cor" style="background-color: #008000;" data-cor="Verde"></span>
+                </div>
+
+                <p><strong>Tamanho:</strong></p>
+                <div class="tamanhos">
+                    <button class="tamanho">P</button>
+                    <button class="tamanho">M</button>
+                    <button class="tamanho">G</button>
+                    <button class="tamanho">GG</button>
+                </div>
+
+                <p><strong>Quantidade:</strong></p>
+                <input type="number" min="1" value="1" class="quantidade">
+
+                <p><strong>Preço:</strong> R$ {{ produto.preco }},00</p>
+
+                 <div class="acoes">
+                    <a href="{% url 'checkout' %}">
+                        <button class="btn-adicionar">Adicionar ao Carrinho</button>
+                    </a>
+                    <a href="{% url 'checkout' %}">
+                        <button class="btn-comprar">Comprar</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+{% endblock %}

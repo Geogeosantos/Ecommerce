@@ -365,7 +365,7 @@ header {
 }
 
 .produto img:hover {
-    transform: scale(1.05);
+    transform: scale(1.15);
     /* Aumenta o tamanho da imagem em 5% no hover */
 }
 
@@ -447,9 +447,8 @@ header {
 /* Estilo para o texto de total de camisas */
 .total-count {
     font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
-    margin-right: 867px; /* Espaço entre o texto e o botão */
+    text-align: center;
 }
-
 /* Rodapé */
 footer {
     text-align: center;
@@ -573,74 +572,134 @@ html {
     /* Adiciona rolagem caso ultrapasse */
 }
 
+/* Ajuste do container */
 .produto-detail {
     display: flex;
-    flex-direction: column;
-    /* Coluna para garantir que a imagem e os dados fiquem lado a lado */
+    justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 50px;
+    width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
 }
 
-/* Container que envolve a imagem e os dados */
+/* Layout flexível */
 .produto-info {
     display: flex;
-    /* Flexbox para exibir a imagem à esquerda e os dados à direita */
+    background-color: #f9f9f9;
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    max-width: 1000px;
-    gap: 30px;
+    gap: 50px;
+    padding: 40px;
+    border-radius: 15px;
 }
 
-/* Imagem do produto */
+/* Imagem */
 .produto-imagem img {
     max-width: 100%;
     height: auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    /* Definindo limite de largura da imagem */
+    border-radius: 10px;
 }
 
-/* Dados do produto */
+/* Caixa de dados */
 .produto-dados {
+    background-color: #454545;
+    padding: 40px;
+    border-radius: 10px;
+    color: white;
+    flex-grow: 1;
     max-width: 500px;
-    /* Limite para os dados */
-    padding-left: 20px;
-    justify-content: center;
-    padding-top: 300px;
 }
 
-/* Estilo do nome do produto */
-.produto-detail h2 {
-    font-size: 2rem;
+/* Título */
+.produto-dados h2 {
+    font-size: 2.5rem;
     font-weight: bold;
-    margin-bottom: 10px;
 }
 
-/* Parágrafos dos dados */
-.produto-dados p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-
+/* Cores */
+.cores {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-/* Botão de comprar */
-.btn-comprar {
-    padding: 12px 25px;
+.cor {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.cor:hover {
+    border-color: black;
+}
+
+/* Tamanhos */
+.tamanhos {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tamanho {
+    padding: 10px 20px;
     font-size: 1.2rem;
-    background-color: #f8a400;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tamanho.selecionado {
+    background-color: white;
+    color: black;
+}
+
+.tamanho:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Input de quantidade */
+.quantidade {
+    padding: 10px;
+    font-size: 1.2rem;
+    width: 70px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+/* Botões */
+.acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-adicionar, .btn-comprar {
+    padding: 15px;
+    font-size: 1.4rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: white;
-    transition: background-color 0.3s ease;
+    text-align: center;
 }
 
-/* Hover effect no botão */
-.btn-comprar:hover {
-    background-color: #f78d00;
+.btn-adicionar {
+    background-color: #4CAF50;
+    color: white;
 }
+
+.btn-comprar {
+    background-color: #ff9800;
+    color: white;
+}
+
+.btn-adicionar:hover { background-color: #45a049; }
+.btn-comprar:hover { background-color: #e68a00; }

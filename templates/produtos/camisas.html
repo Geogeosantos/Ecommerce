@@ -5,7 +5,9 @@
 <section class="container">
     <section id="t_shirts" class="produtos">
         <h2>T-SHIRTS</h2>
-
+        <div class="total-count">
+            <p>{{ total_camisas }} produtos</p>
+        </div>
         <!-- Botões para mudar o layout -->
         <div class="layout-container">
             <div class="view-buttons">
@@ -19,16 +21,13 @@
                     <img src="{% static 'assets/icons/grade_maior.png' %}" alt="">
                 </button>
             </div>
-            <div class="total-count">
-                <p>{{ total_camisas }} produtos</p>
-            </div>
         </div>
 
         <div class="grid-produtos">
             {% if camisas %}
             {% for camisa in camisas %}
             <div class="produto">
-                <a href="{% url 'produto' camisa.id %}">
+                <a href="{% url 'produto_camisa' camisa.id %}">
                     {% if camisa.imagem == "" or camisa.imagem == null %}
                     <img src="{% static 'media/not_found.png' %}" alt="Camisa">
                     {% else %}

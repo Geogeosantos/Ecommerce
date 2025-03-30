@@ -12,12 +12,16 @@ def t_shirts(request):
 
 def jeans(request):
     calcas = calca.objects.all()
-
-    return render(request, 'produtos/jeans.html')
+    total_calcas = calcas.count()
+    return render(request, 'produtos/jeans.html', {'calcas': calcas, 'total_calcas': total_calcas})
 
 def produto_camisa(request, produto_id):
-    produto = get_object_or_404(camisa, id=produto_id)
-    return render(request, 'produtos/produto.html', {'produto': produto})
+    produto_camisa = get_object_or_404(camisa, id=produto_id)
+    return render(request, 'produtos/produto_camisa.html', {'produto': produto_camisa})
+
+def produto_calca(request, produto_id):
+    produto_calca = get_object_or_404(calca, id=produto_id)
+    return render(request, 'produtos/produto_calca.html', {'produto': produto_calca})
 
 def checkout(request):
     return render(request, 'produtos/checkout.html')
