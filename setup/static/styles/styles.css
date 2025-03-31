@@ -365,7 +365,7 @@ header {
 }
 
 .produto img:hover {
-    transform: scale(1.15);
+    transform: scale(1.05);
     /* Aumenta o tamanho da imagem em 5% no hover */
 }
 
@@ -567,9 +567,9 @@ html {
 .container {
     flex: 1;
     max-height: 850px;
-    /* Limite da altura */
     overflow-y: auto;
-    /* Adiciona rolagem caso ultrapasse */
+    width: 100vw;
+    height: 100vh;
 }
 
 /* Ajuste do container */
@@ -577,25 +577,30 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
-    width: 90%;
-    max-width: 1200px;
+    width: 90%; /* Ocupa mais espaço na tela */
+    max-width: 1600px;
     margin: auto;
 }
 
 /* Layout flexível */
 .produto-info {
     display: flex;
-    background-color: #f9f9f9;
+    background-color: #f5f5f5;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
-    gap: 50px;
-    padding: 40px;
+    gap: 40px;
+    padding: 15px;
     border-radius: 15px;
 }
 
 /* Imagem */
+.produto-imagem {
+    flex: 1; /* Ocupa mais espaço */
+    display: flex;
+    justify-content: center;
+}
+
 .produto-imagem img {
     max-width: 100%;
     height: auto;
@@ -605,29 +610,30 @@ html {
 /* Caixa de dados */
 .produto-dados {
     background-color: #454545;
-    padding: 40px;
+    padding: 50px;
     border-radius: 10px;
     color: white;
-    flex-grow: 1;
-    max-width: 500px;
+    flex: 1;
+    max-width: 700px;
 }
 
-/* Título */
+/* Melhorando espaçamentos internos */
 .produto-dados h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 /* Cores */
 .cores {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
 .cor {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     border: 2px solid white;
     cursor: pointer;
@@ -640,12 +646,12 @@ html {
 /* Tamanhos */
 .tamanhos {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
 .tamanho {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 1.2rem;
     border: 2px solid white;
     background: transparent;
@@ -668,7 +674,7 @@ html {
 .quantidade {
     padding: 10px;
     font-size: 1.2rem;
-    width: 70px;
+    width: 80px;
     text-align: center;
     border-radius: 5px;
     border: none;
@@ -679,7 +685,7 @@ html {
 .acoes {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 .btn-adicionar, .btn-comprar {
@@ -689,6 +695,7 @@ html {
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
+    transition: 0.3s ease-in-out;
 }
 
 .btn-adicionar {
